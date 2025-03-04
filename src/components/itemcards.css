@@ -1,0 +1,15 @@
+
+.dishcard{
+    border: solid black 1px;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    
+    margin: 10px;
+    padding: 5px;
+}
+
+.dish{
+    height: 170px;
+    width:250px;
+}

@@ -4,8 +4,25 @@ import Header from "./components/header";
 import ItemCard from "./components/itemcards";
 import Shimmer from "./components/shimmer";
 
+function SearchItems({ searchText, setSearchText, handleSearch }) {
+  return (
+    <div>
+      <input
+        className="search"
+        placeholder="Enter Restaurant Name or Dish"
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
+    </div>
+  );
+}
+
+
 function App() {
   const [restros, setrestros] = useState([]);
+  const [filteredRestros, setFilteredRestros] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -20,36 +37,47 @@ function App() {
       json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants || [];
 
-    console.log(new_data);
     setrestros(new_data);
+    setFilteredRestros(new_data); // Set both original and filtered state
   };
 
-  function handlefilter() {
-    let filterrestros = restros.filter((restro) => restro?.info?.avgRating > 4);
-    setrestros(filterrestros);
+  function handleFilter() {
+    const filtered = restros.filter((restro) => restro?.info?.avgRating > 4);
+    setFilteredRestros(filtered);
   }
 
-  if (restros.length ===0){
-    return <Shimmer></Shimmer>
+  function handleSearch() {
+    const searchedRestros = restros.filter((restro) =>
+      restro?.info?.name?.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFilteredRestros(searchedRestros);
   }
 
-
-  
+  if (restros.length === 0) {
+    return <Shimmer />;
+  }
 
   return (
     <div>
       <Header />
-      <button className="filter" onClick={handlefilter}>
-        Top Rated
-      </button>
-
+      <div className="nav-bar">
+        <SearchItems
+          searchText={searchText}
+          setSearchText={setSearchText}
+          handleSearch={handleSearch}
+        />
+        <button className="filter" onClick={handleFilter}>
+          Top Rated
+        </button>
+      </div>
       <div className="container">
-        {restros.map((restro) => (
+        {filteredRestros.map((restro) => (
           <ItemCard key={restro?.info?.id} resData={restro} />
         ))}
       </div>
     </div>
   );
 }
+
 
 export default App;

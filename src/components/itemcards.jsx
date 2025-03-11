@@ -5,7 +5,7 @@ export default function ItemCard({ resData }) {
   return (
     <div className="dishcard">
       <img
-        className="dish"
+        className="dish-img"
         src={cdnUrl + resData?.info?.cloudinaryImageId}
         alt="dish-img"
       />

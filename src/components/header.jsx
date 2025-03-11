@@ -16,9 +16,9 @@ export default function Header() {
 
       {/* head items */}
       <ul className="headitems">
-        <li><Link to={"/"}>Home</Link></li>
-        <li><Link to={"/about"}>About Us</Link></li>
-        <li><Link to={"/contact"}>Contact Us</Link></li>
+        <li><Link style={{ textDecoration: "none", color: "inherit" }} to={"/"}>Home</Link></li>
+        <li><Link style={{ textDecoration: "none", color: "inherit" }} to={"/about"}>About Us</Link></li>
+        <li><Link style={{ textDecoration: "none", color: "inherit" }} to={"/contact"}>Contact Us</Link></li>
         <li>Cart</li>
         <button onClick={()=>{
           if (btnName === "Login"){

@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/header";
 import ItemCard from "./components/itemcards";
 import Shimmer from "./components/shimmer";
+import { Link } from "react-router-dom";
 
 function SearchItems({ searchText, setSearchText, handleSearch }) {
   return (
@@ -53,6 +54,7 @@ function App() {
     setFilteredRestros(searchedRestros);
   }
 
+
   if (restros.length === 0) {
     return <Shimmer />;
   }
@@ -72,7 +74,7 @@ function App() {
       </div>
       <div className="container">
         {filteredRestros.map((restro) => (
-          <ItemCard key={restro?.info?.id} resData={restro} />
+          <Link style={{ textDecoration: "none", color: "inherit"}} to={"/restraunt/"+restro?.info?.id}><ItemCard key={restro?.info?.id} resData={restro} /></Link>
         ))}
       </div>
     </div>

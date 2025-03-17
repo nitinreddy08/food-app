@@ -18,7 +18,6 @@ export default function Menucard() {
     );
 
     let jsonData = await Data.json();
-    // console.log(jsonData);
     setResData(jsonData);
   }
 
@@ -36,7 +35,7 @@ export default function Menucard() {
         <p>city : {restaurantInfo?.city}</p>
         <p>cuisines : {restaurantInfo?.cuisines.join(" , ")}</p>
         <ul>
-          {items?.card?.card?.itemCards?.slice(0)?.map((item,index) => (
+          {items?.card?.card?.itemCards?.slice(0)?.map((item) => (
             <li key={resData?.data?.cards[2]?.card?.card?.info?.id}>{item?.card?.info?.name}</li>
           ))}
         </ul>

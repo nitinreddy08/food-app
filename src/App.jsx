@@ -43,9 +43,12 @@ function App() {
   };
 
   function handleFilter() {
-    const filtered = restros.filter((restro) => restro?.info?.avgRating > 4);
-    setFilteredRestros(filtered);
-  }
+    const filtered = restros.filter((restro) => restro?.info?.avgRating > 4.5);
+    let sortedData = filtered.sort((a, b) => b.info.avgRating - a.info.avgRating);
+    setFilteredRestros(sortedData);
+}
+
+
 
   function handleSearch() {
     const searchedRestros = restros.filter((restro) =>

@@ -5,6 +5,11 @@ import ItemCard from "./components/itemcards";
 import Shimmer from "./components/shimmer";
 import { Link } from "react-router-dom";
 
+
+
+//  🛜OnLine ⛓️‍💥OffLine
+
+
 function SearchItems({ searchText, setSearchText, handleSearch }) {
   return (
     <div>

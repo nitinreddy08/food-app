@@ -15,6 +15,12 @@ export default function Shimmer(){
             <div className="shimmercard"></div>
             <div className="shimmercard"></div>
             <div className="shimmercard"></div>
+            <div className="shimmercard"></div>
+            <div className="shimmercard"></div>
+            <div className="shimmercard"></div>
+            <div className="shimmercard"></div>
+            <div className="shimmercard"></div>
+            <div className="shimmercard"></div>
         </div>
     )
 }

@@ -19,7 +19,7 @@ function SearchItems({ searchText, setSearchText, handleSearch }) {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button className="searchbutton" onClick={handleSearch}>Search</button>
     </div>
   );
 }
@@ -76,8 +76,8 @@ function App() {
           setSearchText={setSearchText}
           handleSearch={handleSearch}
         />
-        <button className="filter" onClick={handleFilter}>
-          Top Rated
+        <button style={{borderRadius:10, height:37}} className="filter" onClick={handleFilter}>
+          Top Rated ⭐
         </button>
       </div>
       <div className="container">

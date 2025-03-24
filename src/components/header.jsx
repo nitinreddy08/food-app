@@ -10,7 +10,7 @@ export default function Header() {
     <div className="header">
       <div style={{display:"flex"}} >
         <img style={{marginRight:10}} className="logo" src={logoUrl} alt="logo" />
-        <h1 style={{fontFamily:"serif"}}>Focus on Food</h1>
+        <h1 style={{fontFamily:"serif"}}>Focus On The Food</h1>
       </div>
 
       {/* head items */}

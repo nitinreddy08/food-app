@@ -1,25 +1,9 @@
-import { useEffect, useState } from "react";
 import Header from "./header";
 import "./Menucard.css"
-import { useParams } from "react-router-dom";
+import useMenucard from "../utils/useMenucard";
 
 export default function Menucard() {
-  const [resData, setResData] = useState(null);
-
-  useEffect(() => {
-    MenuData();
-  },[]);
-
-  const{resid} = useParams()
-
-  async function MenuData() {
-    let Data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.91239292213611&lng=77.60238703340292&restaurantId="+resid+"&catalog_qa=undefined&submitAction=ENTER"
-    );
-
-    let jsonData = await Data.json();
-    setResData(jsonData);
-  }
+  const resData = useMenucard() 
 
   const restaurantInfo = resData?.data?.cards[2]?.card?.card?.info;
 

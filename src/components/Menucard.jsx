@@ -1,9 +1,12 @@
+// import { useEffect, useState } from "react";
 import Header from "./header";
 import "./Menucard.css"
+// import { useParams } from "react-router-dom";
 import useMenucard from "../utils/useMenucard";
 
 export default function Menucard() {
-  const resData = useMenucard() 
+
+  const resData = useMenucard()
 
   const restaurantInfo = resData?.data?.cards[2]?.card?.card?.info;
 

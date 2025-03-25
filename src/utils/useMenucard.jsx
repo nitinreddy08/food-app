@@ -1,12 +1,13 @@
-import { useState, useEffect, useParams } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { menuLink } from "./links";
 
-function useMenucard() {
+export default function useMenucard() {
   const [resData, setResData] = useState(null);
 
   useEffect(() => {
     MenuData();
-  }, []);
+  }, [resData]);
 
   const { resid } = useParams();
 
@@ -16,8 +17,5 @@ function useMenucard() {
     let jsonData = await Data.json();
     setResData(jsonData);
   }
-
   return resData;
 }
-
-export default useMenucard;
